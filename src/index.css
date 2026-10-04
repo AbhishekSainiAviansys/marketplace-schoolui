@@ -1,0 +1,18 @@
+/* school panel entry stylesheet.
+ *
+ * The whole design system lives in ONE file shared by all three panels:
+ *   shared/design.css
+ * Editing it re-skins admin (5180), vendor (5181) and school (5182) at once.
+ *
+ * source(none) disables Tailwind's automatic scanning, then the explicit
+ * @source globs below re-register exactly what we need. That makes class
+ * detection deterministic instead of depending on where this file lives.
+ *
+ * NOTE: written as UTF-8 without BOM and with LF endings - a BOM or CRLF here
+ * breaks Tailwind's brace expansion in the globs below.
+ */
+@import "tailwindcss" source(none);
+@import "../shared/design.css";
+
+@source "./**/*.tsx";
+@source "../shared/**/*.tsx";

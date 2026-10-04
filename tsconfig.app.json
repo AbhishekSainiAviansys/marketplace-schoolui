@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "es2023",
+    "lib": ["ES2023", "DOM"],
+    "module": "esnext",
+    "types": ["vite/client"],
+    "allowArbitraryExtensions": true,
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* shared/ lives outside this app, so TypeScript cannot walk up to this
+       app's node_modules to resolve react/axios/etc. Point it back here so the
+       shared design system type-checks against THIS app's dependency copies.
+       Paths are relative to this tsconfig (no baseUrl - deprecated in TS 6). */
+    "paths": {
+      "react": ["./node_modules/@types/react"],
+      "react/*": ["./node_modules/@types/react/*"],
+      "react-dom": ["./node_modules/@types/react-dom"],
+      "react-dom/*": ["./node_modules/@types/react-dom/*"],
+      "react-router-dom": ["./node_modules/react-router-dom"],
+      "lucide-react": ["./node_modules/lucide-react"],
+      "axios": ["./node_modules/axios"]
+    }
+  },
+  "include": ["src", "../shared"]
+}
